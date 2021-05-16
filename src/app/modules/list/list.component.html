@@ -1,0 +1,20 @@
+<div>
+    <div class="row m-2">
+        <div class="col-6 p-3 ">
+            <mat-card>
+                <mat-form-field class="full-width">
+                  <mat-label>Search</mat-label>
+                  <input type="text" matInput (keyup)="buscarPorNombre($event)" placeholder="add name...">
+                  <mat-icon matSuffix>search</mat-icon>
+                </mat-form-field>
+            </mat-card>
+        </div>
+        <div class="col-6 p-4 right">
+            <button mat-raised-button color="primary" (click)="addSuperheroe()">Add new Hero</button>
+        </div>
+    </div>
+    <div class="p-4">
+        <app-table [searchInput]="textSearch"></app-table>
+    </div>
+</div>
+

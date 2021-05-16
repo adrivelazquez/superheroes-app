@@ -1,0 +1,47 @@
+<mat-card class="m-5">
+    <h1 *ngIf="mode === 'new'" class="text-center">Add new Superhero</h1>
+    <h1 *ngIf="mode === 'edit'" class="text-center">Edit Superhero</h1>
+    <form [formGroup]="addSuperheroeForm">
+  
+        <mat-form-field class="full-width pb-2">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Enter name" formControlName="name" uppercase>
+            <mat-error>Name field required</mat-error>
+          </mat-form-field>
+      
+          <mat-form-field appearance="fill" class="full-width pb-2">
+            <mat-label>Select a publisher</mat-label>
+            <mat-select placeholder="select a publisher" formControlName="publisher">
+              <mat-option value="DC Comics">
+                DC Comics
+              </mat-option>
+              <mat-option value="Marvel">
+                Marvel Comics
+              </mat-option>
+            </mat-select>
+            <mat-error>Name field required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="full-width pb-2">
+            <mat-label>Alter ego</mat-label>
+            <input matInput placeholder="Enter alter ego" formControlName="alter">
+            <mat-error>Name field required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="full-width pb-2">
+            <mat-label>First appearance</mat-label>
+            <input matInput placeholder="Enter first appearance" formControlName="first_appearance">
+            <mat-error>Name field required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="full-width pb-2">
+            <mat-label>characters</mat-label>
+            <input matInput placeholder="Enter characters" formControlName="characters">
+            <mat-error>Name field required</mat-error>
+          </mat-form-field>
+
+          <button *ngIf="mode === 'new'" mat-raised-button color="primary" [disabled]="!addSuperheroeForm.valid" (click)="onSubmitNew()">Add</button>
+          <button *ngIf="mode === 'edit'" mat-raised-button color="primary" [disabled]="!addSuperheroeForm.valid" (click)="onSubmitUpdate()">Update</button>
+      
+    </form>
+</mat-card>
